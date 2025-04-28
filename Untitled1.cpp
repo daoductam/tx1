@@ -76,7 +76,7 @@ double A2(Maytinh d[], int n, int &sum){
 
 //dua ra tong so cach xep n MAY TINH vao n cho bang pp quay lui
 void view_config(Maytinh d[]){
-	for(int i=1; i<=n; i++){
+	for(int i=1; i<=5; i++){
 		int z = a[i];
 		cout<<"May tinh "<<z<<setw(20);
 	}
@@ -84,19 +84,19 @@ void view_config(Maytinh d[]){
 }
 
 int count2 = 0;
-void A3(Maytinh d[], int k){
-	for(int i=1; i<=n; i++){
-		if(dd[i] == 0){
+void A3(Maytinh d[], int k,int start){
+	for(int i=start; i<=n; i++){
+//		if(dd[i] == 0){
 			a[k] = i;
-			if(k == n){
-//				view_config(d);
+			if(k == 5){
+				view_config(d);
 				count2++;	
 			}
 			else{
-				dd[i] = 1;
-				A3(d,k+1);
-				dd[i] = 0;
-			}
+//				dd[i] = 1;
+				A3(d,k+1,i+1);
+//				dd[i] = 0;
+//			}
 		}
 	}
 }
@@ -115,7 +115,7 @@ int main(){
 	int sum = 0;
 	cout<<"\nTong gia ban cua danh sach may tinh la: "<<A2(d,n,sum)<<"\n";
 	
-	A3(d,1);
+	A3(d,1,1);
 	cout<<"\nTong so cach xep n MAY TINH vao n cho la: "<<count2<<"\n";
 	
 	
